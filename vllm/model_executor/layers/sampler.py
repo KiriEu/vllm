@@ -86,7 +86,7 @@ class Sampler(nn.Module):
         probs = torch.softmax(logits, dim=-1, dtype=torch.float)
         # Compute the log probabilities.
         # Use log_softmax to ensure numerical stability.
-        logprobs = torch.log_softmax(logits, dim=-1, dtype=torch.float)
+        logprobs = logits
 
         # Sample the next tokens.
         sample_results = _sample(probs, logprobs, input_metadata)
